@@ -44,7 +44,7 @@ import com.myspring.pro30.member.vo.MemberVO;
 /**
 *
 *
-* @version          1.00 2027년 09월 28일
+* @version          1.00 2022년 09월 28일
 * @author           방세현
 */
 @Controller("boardController")
