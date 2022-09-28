@@ -1,3 +1,9 @@
+/*
+ * @(#)BoardService.java		
+ * 
+ * 2022-09-28
+ * 
+ */
 package com.myspring.pro30.board.dao;
 
 import java.util.ArrayList;
@@ -11,7 +17,12 @@ import org.springframework.stereotype.Repository;
 
 import com.myspring.pro30.board.vo.ArticleVO;
 import com.myspring.pro30.board.vo.ImageVO;
-
+/*
+*
+*
+* @version          1.00 2022년 09월 28일
+* @author           방세현
+*/
 
 @Repository("boardDAO")
 public class BoardDAOImpl implements BoardDAO {
