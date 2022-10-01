@@ -1,34 +1,52 @@
 package com.myspring.pro30.board.dao;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
-import com.myspring.pro30.board.vo.ArticleVO;
+import com.myspring.pro30.article.vo.ArticleVO;
 
 /**
  * 
- * @version 1.0.0 2022년 9월 28일
- * @author 김민석
+ * @author jh-lee99
  *
  */
-@Repository("boardDAO")
+@Repository
 public class BoardDAOImpl implements BoardDAO {
 	@Autowired
-	// SQL 구문 실행을 위한 SqlSession 객체 선언
 	private SqlSession sqlSession;
-
-	// 모든 글을 List 형식으로 불러옴
+	
+	/** 
+	 * ... DB에 등록된 모든 글에 대한 정보를 list형태로 가져온다.
+	 * @return articleList 관계된 모든 레코드를 읽어 반환한다.
+	 */
 	@Override
-	public List selectAllArticlesList() throws Exception {
-		List<ArticleVO> articlesList = sqlSession.selectList("mapper.board.selectAllArticlesList");
+	public List selectAllArticlesList() throws DataAccessException {
+		List<ArticleVO> articlesList = articlesList = sqlSession.selectList("mapper.board.selectAllArticlesList");
 		return articlesList;
 	}
 
-	// articleNO에 해당하는 번호의 글을 불러옴
+	/**
+	 * @param articleMap 추가할 글의 정보를 담고있는 Map
+	 * @return 가장 최근에 추가된 글의 번호를 반환한다.
+	 */
 	@Override
-	public ArticleVO selectArticle(int articleNO) throws DataAccessException {
-		return sqlSession.selectOne("mapper.board.selectArticle", articleNO);
+	public int insertNewArticle(Map articleMap) throws DataAccessException {
+		int articleNO = selectNewArticleNO();
+		articleMap.put("articleNO", articleNO);
+		sqlSession.insert("mapper.board.insertNewArticle",articleMap);
+		return articleNO;
+	}
+	
+	/**
+	 * @return 가장 최근에 추가된 글 번호를 가져오는 sql문
+	 * @throws DataAccessException
+	 */
+	private int selectNewArticleNO() throws DataAccessException {
+		return sqlSession.selectOne("mapper.board.selectNewArticleNO");
 	}
 }
