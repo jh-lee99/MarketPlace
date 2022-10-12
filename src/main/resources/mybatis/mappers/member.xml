@@ -1,0 +1,48 @@
+<!--
+    파일명: member.xml
+
+    버전 정보: 1.0.0
+
+    날짜: 2022-10-12
+
+    작성자: 방세현
+
+    파일 설명: 데이터베이스 연동 시 반환되는 값을 저장할 빈이나 트랜잭션, 데이터 소스 등 마이바티스 관련 정보를 설정하는 파일
+-->
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.member">
+<!-- 회원 정보 테이블-->
+    <resultMap id="memberResult" type="MemberVO">
+            <result property="member_id" column="member_id" />                  <!--회원 아이디-->
+            <result property="member_pw" column="member_pw" />                  <!--회원 비밀번호-->
+            <result property="member_name" column="member_name" />              <!--회원 이름-->
+            <result property="member_gender" column="member_gender" />          <!--성별-->
+
+            <result property="member_birth_y" column="member_birth_y" />        <!--생년월일 년-->
+            <result property="member_birth_m" column="member_birth_m" />        <!--생년월일 월-->
+            <result property="member_birth_d" column="member_birth_d" />        <!--생년월일 일-->
+            
+            <result property="member_birth_gn" column="member_birth_gn" />      <!--생년월일 양력|음력-->
+            <result property="tel" column="tel" />                              <!--유선 전화번호1, 2,3생략-->
+            <result property="hp1" column="hp1" />                              <!--핸드폰 번호1, 2,3생략-->
+            <result property="smssts_yn" column="smssts_yn" />                  <!--메시지 수신 여부-->
+            <result property="email1" column="email1" />                        <!--이메일 1-->   
+            <result property="email2" column="email2" />                        <!--이메일2-->
+            <result property="emailsts_yn" column="emailsts_yn" />              <!--이메일 수신 여부-->
+            
+            <result property="zipcode" column="zipcode" />                      <!--우편 주소-->
+            <result property="roadAddress" column="roadAddress" />              <!--도로명 주소-->
+            <result property="jibunAddress" column="jibunAddress" />            <!--지번 주소-->
+            <result property="namujiAddress" column="namujiAddress" />          <!--나머지 주소-->
+            <result property="joinDate" column="joinDate" />                    <!--회원가입일자-->
+
+            <!-- 추후 구현할 기능 관련
+            <result property="resent_Product" column="resent_Product" />        <!최근 본 상품>
+            <result property="mostly_Product" column="mostly_Product" />        <!자주 본 상품>
+            <result property="product_Marking" column="product_Marking" />      <!즐겨찾기>   
+            -->                 
+    </resultMap>
+</mapper>
