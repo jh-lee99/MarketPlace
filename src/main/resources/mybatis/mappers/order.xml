@@ -59,7 +59,7 @@
 	    <![CDATA[
 			insert into t_shopping_order(order_seq_num,
 			                            order_id,
-										  member_id,
+										member_id,
 									    goods_id,
 									    goods_title,
 									    goods_fileName,
@@ -82,7 +82,7 @@
 						                card_pay_month,
 						                orderer_hp,
 						                pay_orderer_hp_num)
-							     values(#{order_seq_num},
+							     		values(#{order_seq_num},
 							            #{order_id},
 									    #{member_id},
 									    #{goods_id},
