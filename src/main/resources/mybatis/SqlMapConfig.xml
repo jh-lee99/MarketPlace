@@ -1,0 +1,21 @@
+<!--
+    파일명: SqlMapConfig.xml
+
+    버전 정보: 1.0.0
+
+    날짜: 2022-10-12
+
+    작성자: 방세현
+
+    파일 설명: 회원 정보 관련 SQL문을 설정하는 파일
+-->
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration 	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+  <typeAliases>
+ 
+    
+  </typeAliases>
+</configuration>
